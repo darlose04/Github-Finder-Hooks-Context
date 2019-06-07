@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 
 class User extends Component {
   componentDidMount() {
-    // this is coming from the :login in App.js line 101
-    // it takes in username in the getUser method in App.js, login and username are the same here
-    // gets all the user info from state and then passes that state back into the User component
     this.props.getUser(this.props.match.params.login);
     this.props.getUserRepos(this.props.match.params.login);
   }

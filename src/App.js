@@ -128,16 +128,17 @@ const App = () => {
               <Route
                 exact
                 path='/user/:login'
-                render={props => (
-                  <User
-                    {...props}
-                    // getUser={getUser} // this stuff is coming from context now
-                    getUserRepos={getUserRepos}
-                    // user={user}
-                    repos={repos}
-                    loading={loading}
-                  />
-                )}
+                component={User}
+                // render={props => (
+                //   <User
+                //     {...props}
+                //     // getUser={getUser} // this stuff is coming from context now
+                //     // getUserRepos={getUserRepos}
+                //     // user={user}
+                //     // repos={repos}
+                //     loading={loading}
+                //   />
+                // )}
               />
             </Switch>
           </div>

@@ -24,8 +24,8 @@ const App = () => {
   // this is basically the same thing as doing what's in state above, except in functional component
   // const [users, setUsers] = useState([]); // this can go since it's not being used this way, it's coming from context instead, same with the others
   // const [user, setUser] = useState({});
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [repos, setRepos] = useState([]);
+  // const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
   // these methods/functions are going to get moved to the GithubState file
@@ -128,7 +128,7 @@ const App = () => {
               <Route
                 exact
                 path='/user/:login'
-                component={User}
+                component={User} // we can just use this since we no longer need the props
                 // render={props => (
                 //   <User
                 //     {...props}

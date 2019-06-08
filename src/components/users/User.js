@@ -7,10 +7,10 @@ import GithubContext from "../../context/github/githubContext";
 
 // comment on line 11 gets rid of warning in console about add getUser... as dependencies in the array. This would cause an endless loop of trying to pass connections though, so it's bad
 // const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
-const User = ({ getUserRepos, repos, match }) => {
+const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
 
-  const { getUser, loading, user } = githubContext;
+  const { getUser, loading, user, getUserRepos, repos } = githubContext;
 
   useEffect(() => {
     getUser(match.params.login);
@@ -122,12 +122,12 @@ const User = ({ getUserRepos, repos, match }) => {
   );
 };
 
-User.propTypes = {
-  // loading: PropTypes.bool,
-  // user: PropTypes.object.isRequired,
-  repos: PropTypes.array.isRequired,
-  // getUser: PropTypes.func.isRequired,
-  getUserRepos: PropTypes.func.isRequired
-};
+// User.propTypes = {
+// loading: PropTypes.bool,
+// user: PropTypes.object.isRequired,
+// repos: PropTypes.array.isRequired,
+// getUser: PropTypes.func.isRequired,
+// getUserRepos: PropTypes.func.isRequired
+// };
 
 export default User;

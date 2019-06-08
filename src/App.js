@@ -23,7 +23,7 @@ const App = () => {
 
   // this is basically the same thing as doing what's in state above, except in functional component
   // const [users, setUsers] = useState([]); // this can go since it's not being used this way, it's coming from context instead, same with the others
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
@@ -46,20 +46,20 @@ const App = () => {
   // };
 
   // get a single Github user
-  const getUser = async username => {
-    // this.setState({ loading: true });
-    setLoading(true);
+  // const getUser = async username => {
+  //   // this.setState({ loading: true });
+  //   setLoading(true);
 
-    const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID
-      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
+  //   const res = await axios.get(
+  //     `https://api.github.com/users/${username}?client_id=${
+  //       process.env.REACT_APP_GITHUB_CLIENT_ID
+  //     }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+  //   );
 
-    // this.setState({ user: res.data, loading: false });
-    setUser(res.data);
-    setLoading(false);
-  };
+  //   // this.setState({ user: res.data, loading: false });
+  //   setUser(res.data);
+  //   setLoading(false);
+  // };
 
   // get users repos
   const getUserRepos = async username => {
@@ -131,9 +131,9 @@ const App = () => {
                 render={props => (
                   <User
                     {...props}
-                    getUser={getUser}
+                    // getUser={getUser} // this stuff is coming from context now
                     getUserRepos={getUserRepos}
-                    user={user}
+                    // user={user}
                     repos={repos}
                     loading={loading}
                   />

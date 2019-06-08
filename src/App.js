@@ -7,7 +7,7 @@ import Search from "./components/users/Search";
 import Alert from "./components/layout/Alert";
 import About from "./components/pages/About";
 import User from "./components/users/User";
-import axios from "axios";
+// import axios from "axios";
 import "./App.css";
 
 import GithubState from "./context/github/GithubState";

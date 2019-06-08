@@ -1,18 +1,20 @@
 import React, { useState, useContext } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import GithubContext from "../../context/github/githubContext";
+import AlertContext from "../../context/alert/alertContext";
 
 // convert to function component for hooks
 // props are now brought in as arguments
 // const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
 // searchUsers... is no longer a prop, it is accessed with the usedContext hook
-const Search = ({ setAlert }) => {
+const Search = () => {
   // don't use it like this since we're using hooks
   // state = {
   //   text: ""
   // };
 
   const githubContext = useContext(GithubContext);
+  const alertContext = useContext(AlertContext);
 
   const [text, setText] = useState("");
 
@@ -21,7 +23,8 @@ const Search = ({ setAlert }) => {
   const onSubmit = e => {
     e.preventDefault();
     if (text === "") {
-      setAlert("Please enter something", "light");
+      // setAlert("Please enter something", "light");
+      alertContext.setAlert("Please enter something", "light");
     } else {
       // searchUsers(text);
       githubContext.searchUsers(text);
@@ -68,11 +71,11 @@ const Search = ({ setAlert }) => {
   );
 };
 
-Search.propTypes = {
-  // searchUsers: PropTypes.func.isRequired,
-  // clearUsers: PropTypes.func.isRequired,
-  // showClear: PropTypes.bool.isRequired,
-  setAlert: PropTypes.func.isRequired
-};
+// Search.propTypes = {
+// searchUsers: PropTypes.func.isRequired,
+// clearUsers: PropTypes.func.isRequired,
+// showClear: PropTypes.bool.isRequired,
+// setAlert: PropTypes.func.isRequired
+// };
 
 export default Search;

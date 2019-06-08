@@ -114,11 +114,13 @@ const App = () => {
                   <Fragment>
                     <Search
                       // searchUsers={searchUsers} / no longer need this since it can be accessed through context
-                      clearUsers={clearUsers}
-                      showClear={users.length > 0 ? true : false}
+                      // clearUsers={clearUsers}
+                      // showClear={users.length > 0 ? true : false}
                       setAlert={showAlert}
                     />
-                    <Users loading={loading} users={users} />
+                    {/* <Users loading={loading} users={users} />  */}
+                    {/* this info will come from the context now, the app level state */}
+                    <Users />
                   </Fragment>
                 )}
               />

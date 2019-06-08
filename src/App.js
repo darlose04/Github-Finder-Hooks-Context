@@ -4,11 +4,12 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 // import UserItem from "./components/users/UserItem";
-import Users from "./components/users/Users";
-import Search from "./components/users/Search";
+// import Users from "./components/users/Users";
+// import Search from "./components/users/Search";
 import Alert from "./components/layout/Alert";
 import About from "./components/pages/About";
 import User from "./components/users/User";
+import Home from "./components/pages/Home";
 // import axios from "axios";
 import "./App.css";
 
@@ -116,18 +117,19 @@ const App = () => {
                 <Route
                   exact
                   path='/'
-                  render={props => (
-                    <Fragment>
-                      <Search
-                      // searchUsers={searchUsers} / no longer need this since it can be accessed through context
-                      // clearUsers={clearUsers}
-                      // showClear={users.length > 0 ? true : false}
-                      // setAlert={showAlert}
-                      />
-                      {/* <Users loading={loading} users={users} />  */}
-                      {/* this info will come from the context now, the app level state */}
-                      <Users />
-                    </Fragment>
+                  component={Home}
+                  // render={props => (
+                  //   <Fragment>
+                  //     <Search
+                  //     // searchUsers={searchUsers} / no longer need this since it can be accessed through context
+                  //     // clearUsers={clearUsers}
+                  //     // showClear={users.length > 0 ? true : false}
+                  //     // setAlert={showAlert}
+                  //     />
+                  //     {/* <Users loading={loading} users={users} />  */}
+                  //     {/* this info will come from the context now, the app level state */}
+                  //     <Users />
+                  //   </Fragment>
                   )}
                 />
                 <Route exact path='/about' component={About} />

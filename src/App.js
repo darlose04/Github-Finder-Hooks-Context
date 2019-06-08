@@ -1,4 +1,6 @@
-import React, { useState, Fragment } from "react";
+// import React, { useState, Fragment } from "react";
+// useState not needed anymore since we aren't using component level state
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 // import UserItem from "./components/users/UserItem";

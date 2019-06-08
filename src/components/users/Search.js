@@ -5,8 +5,8 @@ import GithubContext from "../../context/github/githubContext";
 // convert to function component for hooks
 // props are now brought in as arguments
 // const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
-// searchUsers is longer a prop, it is accessed with the usedContext hook
-const Search = ({ showClear, clearUsers, setAlert }) => {
+// searchUsers... is no longer a prop, it is accessed with the usedContext hook
+const Search = ({ setAlert }) => {
   // don't use it like this since we're using hooks
   // state = {
   //   text: ""
@@ -55,8 +55,12 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
           className='btn btn-dark btn-block'
         />
       </form>
-      {showClear && (
-        <button className='btn btn-light btn-block' onClick={clearUsers}>
+      {/* {showClear && ( */}
+      {githubContext.users.length > 0 && (
+        <button
+          className='btn btn-light btn-block'
+          onClick={githubContext.clearUsers}
+        >
           Clear
         </button>
       )}
@@ -66,8 +70,8 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
 
 Search.propTypes = {
   // searchUsers: PropTypes.func.isRequired,
-  clearUsers: PropTypes.func.isRequired,
-  showClear: PropTypes.bool.isRequired,
+  // clearUsers: PropTypes.func.isRequired,
+  // showClear: PropTypes.bool.isRequired,
   setAlert: PropTypes.func.isRequired
 };
 

@@ -22,7 +22,7 @@ const App = () => {
   // };
 
   // this is basically the same thing as doing what's in state above, except in functional component
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]); // this can go since it's not being used this way, it's coming from context instead, same with the others
   const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);

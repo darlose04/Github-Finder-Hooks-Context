@@ -28,21 +28,22 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
+  // these methods/functions are going to get moved to the GithubState file
   // search github users
-  const searchUsers = async text => {
-    // this.setState({ loading: true });
-    setLoading(true);
+  // const searchUsers = async text => {
+  //   // this.setState({ loading: true });
+  //   setLoading(true);
 
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID
-      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
+  //   const res = await axios.get(
+  //     `https://api.github.com/search/users?q=${text}&client_id=${
+  //       process.env.REACT_APP_GITHUB_CLIENT_ID
+  //     }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+  //   );
 
-    // this.setState({ users: res.data.items, loading: false });
-    setUsers(res.data.items);
-    setLoading(false);
-  };
+  //   // this.setState({ users: res.data.items, loading: false });
+  //   setUsers(res.data.items);
+  //   setLoading(false);
+  // };
 
   // get a single Github user
   const getUser = async username => {
@@ -112,7 +113,7 @@ const App = () => {
                 render={props => (
                   <Fragment>
                     <Search
-                      searchUsers={searchUsers}
+                      // searchUsers={searchUsers} / no longer need this since it can be accessed through context
                       clearUsers={clearUsers}
                       showClear={users.length > 0 ? true : false}
                       setAlert={showAlert}

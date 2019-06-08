@@ -78,11 +78,11 @@ const App = () => {
   };
 
   // clear users from state
-  const clearUsers = () => {
-    // this.setState({ users: [], loading: false });
-    setUsers([]);
-    setLoading(false);
-  };
+  // const clearUsers = () => {
+  //   // this.setState({ users: [], loading: false });
+  //   setUsers([]);
+  //   setLoading(false);
+  // };
 
   // set alert
   // have to change it from setAlert because setAlert is used with useState

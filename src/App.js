@@ -62,20 +62,20 @@ const App = () => {
   // };
 
   // get users repos
-  const getUserRepos = async username => {
-    // this.setState({ loading: true });
-    setLoading(true);
+  // const getUserRepos = async username => {
+  //   // this.setState({ loading: true });
+  //   setLoading(true);
 
-    const res = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID
-      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
+  //   const res = await axios.get(
+  //     `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${
+  //       process.env.REACT_APP_GITHUB_CLIENT_ID
+  //     }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+  //   );
 
-    // this.setState({ repos: res.data, loading: false });
-    setRepos(res.data);
-    setLoading(false);
-  };
+  //   // this.setState({ repos: res.data, loading: false });
+  //   setRepos(res.data);
+  //   setLoading(false);
+  // };
 
   // clear users from state
   // const clearUsers = () => {

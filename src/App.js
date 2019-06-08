@@ -11,6 +11,7 @@ import User from "./components/users/User";
 import "./App.css";
 
 import GithubState from "./context/github/GithubState";
+import AlertState from "./context/alert/AlertState";
 
 const App = () => {
   // state = {
@@ -84,66 +85,70 @@ const App = () => {
   //   setLoading(false);
   // };
 
+  // THIS IS GOING TO THE ALERTSTATE
   // set alert
   // have to change it from setAlert because setAlert is used with useState
-  const showAlert = (msg, type) => {
-    // this.setState({ alert: { msg: msg, type: type } });
-    setAlert({ msg, type });
+  // const showAlert = (msg, type) => {
+  //   // this.setState({ alert: { msg: msg, type: type } });
+  //   setAlert({ msg, type });
 
-    setTimeout(() => {
-      // this.setState({ alert: null });
-      setAlert(null);
-    }, 5000);
-  };
+  //   setTimeout(() => {
+  //     // this.setState({ alert: null });
+  //     setAlert(null);
+  //   }, 5000);
+  // };
 
   // no longer needed since state is longer here
   // const { users, user, repos, loading, alert } = this.state;
 
   return (
     <GithubState>
-      <Router>
-        <div className='App'>
-          <Navbar />
-          <div className='container'>
-            <Alert alert={alert} />
-            <Switch>
-              <Route
-                exact
-                path='/'
-                render={props => (
-                  <Fragment>
-                    <Search
+      <AlertState>
+        <Router>
+          <div className='App'>
+            <Navbar />
+            <div className='container'>
+              {/* <Alert alert={alert} /> */}
+              <Alert />
+              <Switch>
+                <Route
+                  exact
+                  path='/'
+                  render={props => (
+                    <Fragment>
+                      <Search
                       // searchUsers={searchUsers} / no longer need this since it can be accessed through context
                       // clearUsers={clearUsers}
                       // showClear={users.length > 0 ? true : false}
-                      setAlert={showAlert}
-                    />
-                    {/* <Users loading={loading} users={users} />  */}
-                    {/* this info will come from the context now, the app level state */}
-                    <Users />
-                  </Fragment>
-                )}
-              />
-              <Route exact path='/about' component={About} />
-              <Route
-                exact
-                path='/user/:login'
-                component={User} // we can just use this since we no longer need the props
-                // render={props => (
-                //   <User
-                //     {...props}
-                //     // getUser={getUser} // this stuff is coming from context now
-                //     // getUserRepos={getUserRepos}
-                //     // user={user}
-                //     // repos={repos}
-                //     loading={loading}
-                //   />
-                // )}
-              />
-            </Switch>
+                      // setAlert={showAlert}
+                      />
+                      {/* <Users loading={loading} users={users} />  */}
+                      {/* this info will come from the context now, the app level state */}
+                      <Users />
+                    </Fragment>
+                  )}
+                />
+                <Route exact path='/about' component={About} />
+                <Route
+                  exact
+                  path='/user/:login'
+                  component={User} // we can just use this since we no longer need the props
+                  // render={props => (
+                  //   <User
+                  //     {...props}
+                  //     // getUser={getUser} // this stuff is coming from context now
+                  //     // getUserRepos={getUserRepos}
+                  //     // user={user}
+                  //     // repos={repos}
+                  //     loading={loading}
+                  //   />
+                  // )}
+                />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </AlertState>
     </GithubState>
   );
 };

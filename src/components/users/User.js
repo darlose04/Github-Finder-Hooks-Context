@@ -1,11 +1,17 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect, Fragment, useContext } from "react";
 import Spinner from "../layout/Spinner";
 import Repos from "../repos/Repos";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import GithubContext from "../../context/github/githubContext";
 
 // comment on line 11 gets rid of warning in console about add getUser... as dependencies in the array. This would cause an endless loop of trying to pass connections though, so it's bad
-const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
+// const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
+const User = ({ getUserRepos, repos, match }) => {
+  const githubContext = useContext(GithubContext);
+
+  const { getUser, loading, user } = githubContext;
+
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);

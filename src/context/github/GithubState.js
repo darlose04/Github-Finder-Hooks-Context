@@ -63,7 +63,8 @@ const GithubState = props => {
     );
 
     dispatch({
-      type: GET_REPOS
+      type: GET_REPOS,
+      payload: res.data
     });
   };
 
